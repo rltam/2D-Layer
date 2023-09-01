@@ -52,8 +52,8 @@ try:
 except FileExistsError:
     dest_folder = f'/home/rltam/Documents/RunOutputFiles/{folder}/Inversion{iteration}'
 
-
-Edge_Height=np.loadtxt("Edge_Height.txt")
+Edge_Height = 1000
+# Edge_Height=np.loadtxt("Edge_Height.txt")
 Edge_Length=np.loadtxt("Edge_Length.txt")
 true_thick = np.loadtxt(f'/home/rltam/Documents/RunOutputFiles/{folder}/True_Data/Thickness_Profile.txt')
 true_thick = true_thick[true_thick[:,0].argsort()]
