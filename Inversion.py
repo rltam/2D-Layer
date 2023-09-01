@@ -72,7 +72,7 @@ G = G[:-1]
 if iteration > 0:
     diff_strain = np.zeros(len(obs_strain))
     for i in range(len(diff_strain)):
-        diff_strain[i] = rec_strain[i][1] - obs_strain[i][1]
+        diff_strain[i] = obs_strain[i][1] - rec_strain[i][1]
     np.savetxt(f'/home/rltam/Documents/RunOutputFiles/{folder}/Inversion{iteration}/Obs-Rec_Strain.txt', diff_strain)
     
     diff_strain_cut = diff_strain[:-1]
