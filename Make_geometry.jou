@@ -1,0 +1,44 @@
+# -*- Python -*- (syntax highlighting)
+# ----------------------------------------------------------------------
+#
+
+reset	
+set journal on	
+
+${size=0.1}
+
+create surface rectangle width 100000 height 1000
+
+
+{Units('si')} 	
+set tetmesher HPC off	
+Trimesher geometry sizing off	
+surface all scheme trimesh geometry approximation angle 4 minimum size {size*km}	
+volume all scheme tetmesh
+volume all size {size*km}
+surface all size {size*km}	
+mesh surface all
+
+nodeset 1 add curve 1
+nodeset 1 name "Upper_surf"
+nodeset 2 add curve 2
+nodeset 2 name "Left_surf"
+nodeset 3 add curve 3
+nodeset 3 name "Lower_surf"
+nodeset 4 add curve 4
+nodeset 4 name "Right_surf"
+
+nodeset 5 add surface all
+nodeset 5 name "All_nodes"
+
+
+nodeset 6 add node 2
+nodeset 6 name "Upleft"
+
+
+nodeset 7 add node 1
+nodeset 7 name "Upright"
+
+
+export mesh "/home/rltam/Coreform-Cubit-2022.4/bin/geometry.exo" dimension 2 overwrite
+
