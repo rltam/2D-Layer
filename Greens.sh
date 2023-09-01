@@ -8,7 +8,7 @@
 # 5. folder name (optional)
 
 j=$(($1-1))
-for i in $( eval echo {0..$j} )
+for i in $( eval echo {-1..$j} )
 do
 # do echo $i > Iteration.txt;
     source Go_Greens.sh $1 $2 $3 $i $4 $5
